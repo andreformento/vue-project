@@ -1,0 +1,12 @@
+.lists {
+  max-width: 1140px;
+}
+
+.list {
+  background: #FFFFFF;
+
+  &-item {
+    white-space: normal;
+    line-height: 1rem;
+  }
+}

@@ -1,0 +1,10 @@
+.card {
+  width: 20rem;
+  margin: 1rem;
+  padding: 0 1rem 1rem;
+  background: #FFFFFF;
+}
+
+.form {
+  display: flex;
+}

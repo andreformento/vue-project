@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web GO</title>
+    <meta name="description" content="Professional templates for modern web development with ECMAScript, HTML5, Node.js, and Docker.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Web app manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Web GO">
+    <link rel="icon" sizes="192x192" href="chrome-touch-icon-192x192.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Web GO">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
+
+    <!-- Color the status bar on mobile devices -->
+    <meta name="theme-color" content="#2F3BA2">
+
+    <!-- Specifies the base URL for all relative URLs -->
+    <base href="<%= APP_BASE %>">
+
+    <!-- Preloading content -->
+    <%= PRELOAD_POLYFILLS %>
+    <%= PRELOAD_VENDOR %>
+    <%= PRELOAD_APP %>
+  </head>
+  <body>
+    <div id="app"></div>
+    <noscript>Your browser does not support JavaScript!</noscript>
+
+    <!-- Google Analytics -->
+    <script defer>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', '<%= GOOGLE_ANALYTICS %>', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+    <!-- Structured data -->
+    <!-- <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "url": "http://www.example.com",
+        "name": "Unlimited Ball Bearings Corp.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+1-401-555-1212",
+          "contactType": "Customer service"
+        }
+      }
+    </script> -->
+
+    <!-- Web app js files -->
+    <%= POLYFILLS_SCRIPT %>
+    <%= VENDOR_SCRIPT %>
+    <%= APP_SCRIPT %>
+  </body>
+</html>

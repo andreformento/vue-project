@@ -1,0 +1,42 @@
+version: 2
+
+jobs:
+
+  build:
+    docker:
+      - image: circleci/node:8
+
+    working_directory: ~/Frontend-Starter-Kit
+
+    steps:
+      - checkout
+
+      - setup_remote_docker
+
+      - run:
+          name: Start up containers
+          command: docker-compose up -d
+
+      - run:
+          name: Build the application
+          command: docker-compose exec app yarn prod
+
+      - run:
+          name: Test the application
+          command: |
+            docker-compose exec app yarn test
+            docker-compose exec app yarn codecov --token=${CODECOV_TOKEN}
+
+      - run:
+          name: Deploy the application
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "develop" ]; then
+              docker-compose exec app yarn firebase use default --token ${FIREBASE_TOKEN}
+              docker-compose exec app yarn deploy --token ${FIREBASE_TOKEN}
+            elif [ "${CIRCLE_BRANCH}" == "staging" ]; then
+              docker-compose exec app yarn firebase use staging --token ${FIREBASE_TOKEN}
+              docker-compose exec app yarn deploy --token ${FIREBASE_TOKEN}
+            elif [ "${CIRCLE_BRANCH}" == "master" ]; then
+              docker-compose exec app yarn firebase use production --token ${FIREBASE_TOKEN}
+              docker-compose exec app yarn deploy --token ${FIREBASE_TOKEN}
+            fi

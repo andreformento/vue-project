@@ -1,0 +1,13 @@
+{
+  "TITLE": "Web GO",
+  "LINK": [
+    ["/en", "Home"],
+    ["/en/about", "About"],
+    ["/en/contact", "Contact"]
+  ],
+  "TECHNOLOGIES": "Technologies",
+  "RESOURCES": "Resources",
+  "TRAINING": "Training",
+  "CERTIFICATION": "Certification",
+  "LANGUAGES": "Languages"
+}
